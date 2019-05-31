@@ -43,6 +43,10 @@ const GlobalStyle = createGlobalStyle`
     max-width: 100%;
   }
 
+  figure {
+    margin: 0;
+  }
+
   h1 {
     font-family: 'Share Tech', sans-serif;
     text-transform: uppercase;

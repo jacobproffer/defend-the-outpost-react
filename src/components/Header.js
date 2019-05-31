@@ -39,7 +39,7 @@ const SiteHeader = styled.header`
   z-index: 9;
   width: 100%;
   height: 100px;
-  padding: 25px 0;
+  padding: 100px 0;
 `;
 
 const SiteHeaderGrid = styled.div`

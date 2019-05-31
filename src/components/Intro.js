@@ -1,49 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import screen from 'superior-mq';
-import Container from './Container';
-import Intel from './Intel';
+// import screen from 'superior-mq';
 
 const Intro = (props) => (
   <IntroSection id="info">
-    <Container>
-      <InfoWrap>
+    <IntroGrid>
+      <IntroImage />
+      <IntroContent>
         <h4>{props.subheading}</h4>
         <h2>{props.heading}</h2>
-        <Intel />
-      </InfoWrap>
-    </Container>
+      </IntroContent>
+    </IntroGrid>
   </IntroSection>
 );
 
 const IntroSection = styled.section`
-  padding: 75px 0;
-
   h2 {
-    padding-bottom: 50px;
     margin-bottom: 0;
-    border-bottom: 1px solid #6e6e6e;
-
-    ${screen.above('1024px', `
-      padding-bottom: 100px;
-    `)}
   }
 
   h4 {
     margin-top: 0;
     text-transform: uppercase;
   }
-
-  ${screen.above('1024px', `
-    padding: 150px;
-  `)}
 `;
 
-const InfoWrap = styled.div`
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+const IntroGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 100px;
+`;
+
+const IntroImage = styled.figure`
+  position: relative;
+  z-index: 10;
+  background-color: red;
+`;
+
+const IntroContent = styled.div`
+  padding: 75px 0;
 `;
 
 Intro.propTypes = {

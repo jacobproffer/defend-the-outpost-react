@@ -4,29 +4,38 @@ import styled from 'styled-components';
 import screen from 'superior-mq';
 import Container from './Container';
 import image from '../static/compound.jpg';
+import imageSquare from '../static/compound-square.jpg';
 import noise from '../static/noise.png';
+import Target from './Target';
 
 const Hero = (props) => (
   <HeroSection id="top">
     <Container>
       <header>
+        <small>{props.subheading}</small>
         <h1>{props.heading}</h1>
-        <p>{props.subheading}</p>
       </header>
     </Container>
     <UavView />
     <Texture />
+    <TargetWrap>
+      <Target />
+    </TargetWrap>
+    <CompoundImage>
+      <img src={imageSquare} alt="The compound."/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49">
+        <path fill="#fff" opacity=".1" d="M0 0v49h49v-2H2V0H0z"/>
+      </svg>
+    </CompoundImage>
   </HeroSection>
 );
 
 const HeroSection = styled.section`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
   overflow: hidden;
-  outline: none; 
+  outline: none;
 
   &:before {
     position: absolute;
@@ -42,22 +51,22 @@ const HeroSection = styled.section`
     mix-blend-mode: overlay;
   }
 
+  header {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9;
+  }
+
   h1 {
     position: relative;
     z-index: 8;
-    margin: 0 -.1em 0 0;
+    margin: 0;
     color: #fff;
     line-height: 1.5;
-    letter-spacing: .1em;
-    border-bottom: 1px solid #6e6e6e;
-
-    ${screen.above('768px', `
-      margin: 0 -.15em 0 0;
-      letter-spacing: .15em;
-    `)}
   }
 
-  p {
+  small {
     position: relative;
     z-index: 8;
     padding-top: 0;
@@ -99,6 +108,33 @@ const Texture = styled.div`
   content: '';
   background-image: url(${noise});
   opacity: .6;
+  pointer-events: none;
+`;
+
+const CompoundImage = styled.figure`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 9;
+  transform: translateY(-50%);
+
+  svg {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 49px;
+    height: 45px;
+  }
+`;
+
+const TargetWrap = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  width: 435px;
+  height: 290px;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 `;
 

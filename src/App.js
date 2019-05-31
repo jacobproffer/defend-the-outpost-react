@@ -3,7 +3,6 @@ import GlobalStyle from './styles/global-style';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Intro from './components/Intro';
-import ImageGrid from './components/ImageGrid';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
           subheading="The SITREP"
           heading="The quarantine of Altis has failed and the few remaining survivors must band together at a remote outpost near Sagonisi."
         />
-        <ImageGrid />
         <Footer />
       </main>
     );
