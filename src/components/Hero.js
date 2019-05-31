@@ -1,12 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import screen from 'superior-mq';
 import Container from './Container';
 import image from '../static/compound.jpg';
 import imageSquare from '../static/compound-square.jpg';
 import noise from '../static/noise.png';
 import Target from './Target';
+
+const pulse = keyframes`
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+`;
 
 const Hero = (props) => (
   <HeroSection id="top">
@@ -52,10 +66,12 @@ const HeroSection = styled.section`
   }
 
   header {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 9;
+    ${screen.above('1024px', `
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9;
+    `)}
   }
 
   h1 {
@@ -75,8 +91,7 @@ const HeroSection = styled.section`
   }
 
   ${screen.below('1024px', `
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding: 200px 0;
   `)}
 
   ${screen.above('1024px', `
@@ -136,6 +151,15 @@ const TargetWrap = styled.div`
   height: 290px;
   transform: translate(-50%, -50%);
   pointer-events: none;
+
+  svg {
+    animation: ${pulse} 2s linear infinite;
+  }
+
+  ${screen.below('1024px', `
+    width: 326px;
+    height: 218px;
+  `)}
 `;
 
 Hero.propTypes = {

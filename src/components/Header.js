@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import screen from 'superior-mq';
 import Drone from './Drone';
 import Container from './Container';
 
@@ -38,8 +39,11 @@ const SiteHeader = styled.header`
   position: absolute;
   z-index: 9;
   width: 100%;
-  height: 100px;
   padding: 100px 0;
+
+  ${screen.below('1024px', `
+    padding: 50px 0;
+  `)}
 `;
 
 const SiteHeaderGrid = styled.div`

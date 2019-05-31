@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import GlobalStyle from './styles/global-style';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Intro from './components/Intro';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -14,10 +13,6 @@ class App extends Component {
         <Hero 
           heading="Defend the Outpost"
           subheading="An Arma 3 Scenario"
-        />
-        <Intro
-          subheading="The SITREP"
-          heading="The quarantine of Altis has failed and the few remaining survivors must band together at a remote outpost near Sagonisi."
         />
         <Footer />
       </main>
