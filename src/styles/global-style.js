@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     color: #fff;
-    background: #000;
+    background: #070707;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     transition: color 300ms ease-in-out;
 
     &:hover {
-      color: #000;
+      color: #edcb45;
     }
   }
 
@@ -45,6 +45,14 @@ const GlobalStyle = createGlobalStyle`
 
   figure {
     margin: 0;
+  }
+
+  small {
+    position: relative;
+    z-index: 8;
+    padding-top: 0;
+    color: #edcb45;
+    text-transform: uppercase;
   }
 
   h1 {

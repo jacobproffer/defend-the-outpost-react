@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import styled, {keyframes} from 'styled-components';
 import screen from 'superior-mq';
 import Container from './Container';
+import Target from './Target';
+import Corner from './Corner';
 import image from '../static/compound.jpg';
 import imageSquare from '../static/compound-square.jpg';
 import noise from '../static/noise.png';
-import Target from './Target';
 
 const pulse = keyframes`
   from {
@@ -37,9 +38,7 @@ const Hero = (props) => (
     </TargetWrap>
     <CompoundImage>
       <img src={imageSquare} alt="The compound."/>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49">
-        <path fill="#fff" opacity=".1" d="M0 0v49h49v-2H2V0H0z"/>
-      </svg>
+      <Corner />
     </CompoundImage>
   </HeroSection>
 );
@@ -80,14 +79,6 @@ const HeroSection = styled.section`
     margin: 0 0 0 -5px;
     color: #fff;
     line-height: 1.5;
-  }
-
-  small {
-    position: relative;
-    z-index: 8;
-    padding-top: 0;
-    color: #edcb45;
-    text-transform: uppercase;
   }
 
   ${screen.below('1024px', `
@@ -132,14 +123,6 @@ const CompoundImage = styled.figure`
   right: 0;
   z-index: 9;
   transform: translateY(-50%);
-
-  svg {
-    position: absolute;
-    bottom: -20px;
-    left: -20px;
-    width: 49px;
-    height: 45px;
-  }
 `;
 
 const TargetWrap = styled.div`

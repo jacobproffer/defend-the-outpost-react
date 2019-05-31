@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import screen from 'superior-mq';
 
 const Container = styled.div`
-  max-width: 1200px;
-  padding: 0 5%;
+  max-width: 1240px;
+  padding: 0 2.5%;
   margin: 0 auto;
+
+  ${screen.below('1024px', `
+    padding: 0 5%;
+  `)}
 `;
 
 export default Container;
