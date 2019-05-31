@@ -15,6 +15,13 @@ const DroneSVG = styled.svg`
 
   .dronePath {
     fill: #fff;
+    transition: fill 300ms ease-in-out;
+  }
+
+  &:hover {
+    .dronePath {
+      fill: #edcb45;
+    }
   }
 `;
 
