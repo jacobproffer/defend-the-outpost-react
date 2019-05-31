@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     color: #fff;
     background: #000;
-    font-family: 'Opan Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     border: 0;

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import screen from 'superior-mq';
 import Container from './Container';
-import image from '../static/hero.jpg';
+import image from '../static/compound.jpg';
+import noise from '../static/noise.png';
 
 const Hero = (props) => (
   <HeroSection id="top">
@@ -14,6 +15,7 @@ const Hero = (props) => (
       </header>
     </Container>
     <UavView />
+    <Texture />
   </HeroSection>
 );
 
@@ -24,7 +26,7 @@ const HeroSection = styled.section`
   align-items: center;
   text-align: left;
   overflow: hidden;
-  outline: none;
+  outline: none; 
 
   &:before {
     position: absolute;
@@ -36,8 +38,8 @@ const HeroSection = styled.section`
     width: 100%;
     height: 100%;
     content: '';
-    background-color: rgba(131, 3, 3, .95);
-    mix-blend-mode: multiply;
+    background-color: #1d1d1d;
+    mix-blend-mode: overlay;
   }
 
   h1 {
@@ -59,7 +61,7 @@ const HeroSection = styled.section`
     position: relative;
     z-index: 8;
     padding-top: 0;
-    color: #fff;
+    color: #edcb45;
     text-transform: uppercase;
   }
 
@@ -85,18 +87,19 @@ const UavView = styled.div`
   background-repeat: no-repeat;
   background-image: url(${image});
   will-change: transform;
+`;
 
-  &:before {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-image: -webkit-repeating-linear-gradient(top, transparent 0px, transparent 1px, rgba(0, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0.1) 3px);
-    background-image: repeating-linear-gradient(top, transparent 0px, transparent 1px, rgba(0, 0, 0, 0.1) 1px, rgba(0, 0, 0, 0.1) 3px);
-    background-size: 100% 4px;
-  }
+const Texture = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-image: url(${noise});
+  opacity: .6;
+  pointer-events: none;
 `;
 
 Hero.propTypes = {
