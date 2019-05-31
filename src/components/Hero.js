@@ -77,7 +77,7 @@ const HeroSection = styled.section`
   h1 {
     position: relative;
     z-index: 8;
-    margin: 0;
+    margin: 0 0 0 -5px;
     color: #fff;
     line-height: 1.5;
   }
