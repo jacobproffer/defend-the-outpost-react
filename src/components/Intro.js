@@ -54,7 +54,7 @@ const Intro = (props) => (
 const IntroSection = styled.section`
   position: relative;
   padding: 150px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 2px solid rgba(255, 255, 255, .1);
 
   p {
     position: relative;

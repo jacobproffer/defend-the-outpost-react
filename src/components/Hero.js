@@ -50,7 +50,7 @@ const Hero = (props) => (
 const HeroSection = styled.section`
   position: relative;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 2px solid rgba(255, 255, 255, .1);
   overflow: hidden;
   outline: none;
 
