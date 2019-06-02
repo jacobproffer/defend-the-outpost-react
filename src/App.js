@@ -3,6 +3,7 @@ import GlobalStyle from './styles/global-style';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Intro from './components/Intro';
+import Warning from './components/Warning';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           heading="Defend the Outpost"
         />
         <Intro />
+        <Warning />
         <Footer />
       </main>
     );
