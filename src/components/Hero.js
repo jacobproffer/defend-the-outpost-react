@@ -23,8 +23,12 @@ const pulse = keyframes`
   }
 `;
 
+const cornerStyles = `
+  left: -25px;
+`;
+
 const Hero = (props) => (
-  <HeroSection id="top">
+  <HeroSection>
     <Container>
       <header>
         <small>{props.subheading}</small>
@@ -38,7 +42,7 @@ const Hero = (props) => (
     </TargetWrap>
     <CompoundImage>
       <img src={imageSquare} alt="The compound."/>
-      <Corner />
+      <Corner styles={cornerStyles} />
     </CompoundImage>
   </HeroSection>
 );

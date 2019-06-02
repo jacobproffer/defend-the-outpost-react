@@ -1,39 +1,64 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import screen from 'superior-mq';
 import Container from './Container';
-import Corner from './Corner';
+import Content from './Content';
 import image from '../static/zombies.jpg';
+import droneImage from '../static/drone.jpg';
+import background from '../static/topography.svg';
+import Corner from './Corner';
+
+const cornerLeft = `
+  left: -25px;
+`;
+
+const cornerRight = `
+  right: -25px;
+  transform: scaleX(-1);
+`;
 
 const Intro = (props) => (
-  <IntroSection id="info">
+  <IntroSection>
     <Container>
       <IntroGrid>
-        <IntroImage>
+        <figure>
           <img src={image} alt="Zombies" />
-        </IntroImage>
-        <IntroContent>
-          <small>{props.subheading}</small>
-          <h2>{props.heading}</h2>
-          <Corner />
-          {props.children}
-        </IntroContent>
+        </figure>
+        <Content
+          subheading="Briefing"
+          heading="Altis Has Fallen"
+        >
+          <p>
+            Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.
+            <Corner styles={cornerLeft} />
+          </p>
+        </Content>
+        <Content
+          subheading="Available Assets"
+          heading="Drones on Standby"
+        >
+          <p>
+            Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.
+            <Corner styles={cornerRight} />
+          </p>
+        </Content>
+        <figure>
+          <img src={droneImage} alt="Predator Drone." />
+        </figure>
       </IntroGrid>
     </Container>
+    <Topography />
   </IntroSection>
 );
 
 const IntroSection = styled.section`
+  position: relative;
   padding: 150px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
 
-  h2 {
+  p {
+    position: relative;
     margin-bottom: 0;
-  }
-
-  h4 {
-    margin-top: 0;
-    text-transform: uppercase;
   }
 
   ${screen.below('1024px', `
@@ -44,26 +69,21 @@ const IntroSection = styled.section`
 const IntroGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 100px;
+  grid-gap: 100px;
 `;
 
-const IntroImage = styled.figure`
-  position: relative;
-  z-index: 10;
+const Topography = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url(${background});
+  opacity: .6;
+  mix-blend-mode: overlay;
 `;
-
-const IntroContent = styled.div`
-  position: relative;
-  
-  p {
-    margin-bottom: 0;
-  }
-`;
-
-Intro.propTypes = {
-  heading: PropTypes.string.isRequired,
-  subheading: PropTypes.string.isRequired,
-  children: PropTypes.node
-};
 
 export default Intro;

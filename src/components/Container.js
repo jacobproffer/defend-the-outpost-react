@@ -6,7 +6,7 @@ const Container = styled.div`
   padding: 0 2.5%;
   margin: 0 auto;
 
-  ${screen.below('1024px', `
+  ${screen.below('1280px', `
     padding: 0 5%;
   `)}
 `;
