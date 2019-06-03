@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const Content = (props) => (
-  <ContentWrap>
+  <ContentWrap styles={props.styles}>
     <small>{props.subheading}</small>
     <h2>{props.heading}</h2>
     {props.children}
@@ -11,7 +11,9 @@ const Content = (props) => (
 );
 
 const ContentWrap = styled.div`
+  position: relative;
   align-self: center;
+  z-index: 9;
   
   h2 {
     margin-bottom: 0;
@@ -21,6 +23,10 @@ const ContentWrap = styled.div`
     margin-top: 0;
     text-transform: uppercase;
   }
+
+  ${props => props.styles && css`
+    ${props.styles}
+  `}
 `;
 
 Content.propTypes = {
