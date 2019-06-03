@@ -23,27 +23,23 @@ const Intro = (props) => (
       <IntroGrid>
         <figure>
           <img src={image} alt="Zombies" />
+          <Corner styles={cornerRight} />
         </figure>
         <Content
           subheading="Briefing"
           heading="Altis Has Fallen"
         >
-          <p>
-            Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.
-            <Corner styles={cornerLeft} />
-          </p>
+          <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.</p>
         </Content>
         <Content
           subheading="Available Assets"
           heading="Drones on Standby"
         >
-          <p>
-            Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.
-            <Corner styles={cornerRight} />
-          </p>
+          <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.</p>
         </Content>
         <figure>
           <img src={droneImage} alt="Predator Drone." />
+          <Corner styles={cornerLeft} />
         </figure>
       </IntroGrid>
     </Container>
@@ -55,6 +51,10 @@ const IntroSection = styled.section`
   position: relative;
   padding: 150px 0;
   border-bottom: 2px solid rgba(255, 255, 255, .1);
+
+  figure {
+    position: relative;
+  }
 
   p {
     position: relative;
