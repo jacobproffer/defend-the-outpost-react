@@ -1,28 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 import Section from './Section';
 import Container from './Container';
 import Content from './Content';
 import Corner from './Corner';
-import SquareImage from './SquareImage';
 import image from '../static/infected.jpg';
-import imageSquare from '../static/compound-square.jpg';
 
 const sectionStyles = `
-  padding: 130px 0 400px;
+  padding: 140px 0 200px;
 `;
 
-const cornerStyles = `
-  right: -25px;
-  transform: scaleX(-1);
+const cornerLeftStyles = `
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+`;
+
+const cornerRightStyles = `
+  right: 0;
+  bottom: -50px;
+  transform: rotate(-90deg);
 `;
 
 const contentStyles = `
   max-width: 620px;
   margin: auto;
+  text-align: center;
 `;
 
-const imageStyles = `
-  left: 0;
+const containerStyles = `
+  position: relative;
 `;
 
 const Warning = () => (
@@ -30,23 +37,43 @@ const Warning = () => (
     image={image}
     styles={sectionStyles}
   >
-    <Container>
+    <Container styles={containerStyles}>
       <Content
         subheading="Warning"
         heading="Infected Inbound"
         styles={contentStyles}
-      >
-        <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life. I promise you, they don’t want you to jetski, they don’t want you to smile.</p>
-      </Content>
+      />
+      <List>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+        <li>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it.</li>
+      </List>
+      <Corner styles={cornerLeftStyles} />
+      <Corner styles={cornerRightStyles} />
     </Container>
-    <SquareImage
-      image={imageSquare}
-      alt="Zombie."
-      styles={imageStyles}
-    >
-      <Corner styles={cornerStyles} />
-    </SquareImage>
   </Section>
 );
+
+const List = styled.ul`
+  position: relative;
+  z-index: 9;
+  max-width: 880px;
+  padding: 0;
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 60px;
+
+  li {
+    color: #868686;
+    line-height: 2;
+    list-style-type: none;
+  }
+`;
 
 export default Warning;

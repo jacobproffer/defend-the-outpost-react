@@ -12,6 +12,7 @@ const Corner = (props) => (
 const CornerWrap = styled.div`
   position: absolute;
   bottom: -25px;
+  z-index: 9;
   width: 49px;
   height: 45px;
 

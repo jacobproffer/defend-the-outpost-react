@@ -30,13 +30,13 @@ const GlobalStyle = createGlobalStyle`
   }
   
   a {
-    color: #edcb45;
+    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     transition: color 300ms ease-in-out;
 
     &:hover {
-      color: #fff;
+      color: #edcb45;
     }
   }
 
