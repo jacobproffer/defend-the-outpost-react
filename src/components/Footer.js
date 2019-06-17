@@ -10,7 +10,6 @@ const Footer = () => (
 
 const SiteFooter = styled.footer`
   padding: 40px 0;
-  background-color: #000;
   text-align: center;
 `;
 

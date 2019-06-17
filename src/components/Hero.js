@@ -1,105 +1,108 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import screen from 'superior-mq';
 import Container from './Container';
+import Target from './Target';
+import Corner from './Corner';
+import Section from './Section';
+import SquareImage from './SquareImage';
 import image from '../static/compound.jpg';
-import noise from '../static/noise.png';
+import imageSquare from '../static/compound-square.jpg';
 
-const Hero = (props) => (
-  <HeroSection id="top">
-    <Container>
-      <header>
-        <h1>{props.heading}</h1>
-        <p>{props.subheading}</p>
-      </header>
-    </Container>
-    <UavView />
-    <Texture />
-  </HeroSection>
-);
+const pulse = keyframes`
+  from {
+    transform: scale3d(1, 1, 1);
+  }
 
-const HeroSection = styled.section`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+`;
+
+const sectionStyles = `
   text-align: left;
-  overflow: hidden;
-  outline: none; 
 
-  &:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-color: #1d1d1d;
-    mix-blend-mode: overlay;
+  header {
+    ${screen.above('1024px', `
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9;
+    `)}
   }
 
   h1 {
     position: relative;
     z-index: 8;
-    margin: 0 -.1em 0 0;
+    margin: 0 0 0 -5px;
     color: #fff;
     line-height: 1.5;
-    letter-spacing: .1em;
-    border-bottom: 1px solid #6e6e6e;
-
-    ${screen.above('768px', `
-      margin: 0 -.15em 0 0;
-      letter-spacing: .15em;
-    `)}
-  }
-
-  p {
-    position: relative;
-    z-index: 8;
-    padding-top: 0;
-    color: #edcb45;
-    text-transform: uppercase;
   }
 
   ${screen.below('1024px', `
-    padding-top: 150px;
-    padding-bottom: 150px;
+  padding: 200px 0;
   `)}
 
   ${screen.above('1024px', `
-    height: 100vh;
+  height: 100vh;
   `)}
 `;
 
-const UavView = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(${image});
-  will-change: transform;
+const imageStyles = `
+  right: 0;
 `;
 
-const Texture = styled.div`
+const cornerStyles = `
+  left: -25px;
+`;
+
+const Hero = (props) => (
+  <Section
+    image={image}
+    styles={sectionStyles}
+  >
+    <Container>
+      <header>
+        <small>{props.subheading}</small>
+        <h1>{props.heading}</h1>
+      </header>
+    </Container>
+    <TargetWrap>
+      <Target />
+    </TargetWrap>
+    <SquareImage
+      image={imageSquare}
+      alt="The Compound."
+      styles={imageStyles}
+    >
+      <Corner styles={cornerStyles} />
+    </SquareImage>
+  </Section>
+);
+
+const TargetWrap = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   z-index: 10;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background-image: url(${noise});
-  opacity: .6;
+  width: 435px;
+  height: 290px;
+  transform: translate(-50%, -50%);
   pointer-events: none;
+
+  svg {
+    animation: ${pulse} 2s linear infinite;
+  }
+
+  ${screen.below('1024px', `
+    width: 326px;
+    height: 218px;
+  `)}
 `;
 
 Hero.propTypes = {
