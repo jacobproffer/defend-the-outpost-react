@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     --black: #070707;
     --gray: #868686;
     --yellow: #edcb45;
+    --border: rgba(255, 255, 255, .1);
 
     ${screen.below('1440px', `
       --container: 1000px;
@@ -24,8 +25,18 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  ::-moz-selection { background: rgba(0, 0, 0, .9); }
-  ::selection { background: rgba(0, 0, 0, .9); }
+  ::selection {
+    color: var(--black);
+    background: var(--yellow); 
+  }
+
+  * {
+    &:focus {
+      border-color: var(--border);
+      outline: none;
+      box-shadow: inset 0 1px 2px var(--border), 0 0 0 .2em var(--border);
+    }
+  }
 
   html {
     line-height: 1.15;

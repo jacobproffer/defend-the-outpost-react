@@ -7,6 +7,10 @@ import image from '../static/zombies.jpg';
 import background from '../static/topography.svg';
 import Corner from './Corner';
 
+const cornerLeft = `
+  left: -25px;
+`;
+
 const cornerRight = `
   right: -25px;
   transform: scaleX(-1);
@@ -22,8 +26,8 @@ const contentRight = `
 
 const IntroSection = styled.section`
   position: relative;
-  padding: 150px 0;
-  border-bottom: 2px solid rgba(255, 255, 255, .1);
+  padding: 150px 0 175px;
+  border-bottom: 2px solid var(--border);
 
   figure {
     position: relative;
@@ -101,6 +105,7 @@ const Intro = (props) => (
       <RightImage>
         <figure>
           <img src={image} alt="Zombies" />
+          <Corner styles={cornerLeft} />
         </figure>
       </RightImage>
     </Grid>
