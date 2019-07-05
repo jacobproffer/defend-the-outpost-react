@@ -12,7 +12,6 @@ const Content = (props) => (
 
 const ContentWrap = styled.div`
   position: relative;
-  align-self: center;
   z-index: 9;
   
   h2 {

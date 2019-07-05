@@ -2,11 +2,10 @@ import styled, {css} from 'styled-components';
 import screen from 'superior-mq';
 
 const Container = styled.div`
-  max-width: 1240px;
-  padding: 0;
+  max-width: var(--container);
   margin: 0 auto;
 
-  ${screen.below('1280px', `
+  ${screen.below('1440px', `
     padding: 0 5%;
   `)}
 
