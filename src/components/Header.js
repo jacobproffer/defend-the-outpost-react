@@ -8,7 +8,7 @@ import Link from './Link';
 const navList = [
   {
     id: 1,
-    title: 'Download',
+    title: 'Download Scenario',
     link: '#',
   }
 ];

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import screen from 'superior-mq';
 import Grid from './Grid';
 import Content from './Content';
-import image from '../static/zombies.jpg';
+import altis from '../static/altis.jpg';
+import drone from '../static/drone.jpg';
 import background from '../static/topography.svg';
 import Corner from './Corner';
 
@@ -31,12 +32,6 @@ const IntroSection = styled.section`
 
   figure {
     position: relative;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 
   p {
@@ -80,7 +75,7 @@ const Intro = (props) => (
     <Grid>
       <Grid.Item span={6}>
         <figure>
-          <img src={image} alt="Zombies" />
+          <img src={altis} alt="Small village on the island of Altis." />
           <Corner styles={cornerRight} />
         </figure>
       </Grid.Item>
@@ -90,21 +85,21 @@ const Intro = (props) => (
           heading="Altis Has Fallen"
           styles={contentRight}
         >
-          <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.</p>
+          <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one.</p>
         </Content>
       </RightContent>
       <LeftContent>
         <Content
           subheading="Available Assets"
-          heading="Drones on Standby"
+          heading="Drone on Standby"
           styles={contentLeft}
         >
-          <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one. The key is to enjoy life, because they don’t want you to enjoy life.</p>
+          <p>Lorem Khaled Ipsum is a major key to success. Life is what you make it, so let’s make it. Wraith talk. You should never complain, complaining is a weak emotion, you got life, we breathing, we blessed. In life there will be road blocks but we will over come it. Another one.</p>
         </Content>
       </LeftContent>
       <RightImage>
         <figure>
-          <img src={image} alt="Zombies" />
+          <img src={drone} alt="Predator drone." />
           <Corner styles={cornerLeft} />
         </figure>
       </RightImage>

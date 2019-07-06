@@ -10,14 +10,16 @@ const Link = styled.a`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--border);
-    transition: background-color .5s ease-in-out;
+    background-color: var(--yellow);
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
     content: '';
   }
 
   &:hover {
+    color: var(--yellow);
+
     &::before {
-      background-color: var(--yellow);
+      background-color: var(--border);
     }
   }
 
