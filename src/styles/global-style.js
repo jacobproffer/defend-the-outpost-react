@@ -5,14 +5,38 @@ const GlobalStyle = createGlobalStyle`
 
   @import url('https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech&display=swap');
 
+  :root {
+    --container: 1240px;
+    --container-gutter: calc((100vw - var(--container)) / 2);
+    --white: #fff;
+    --black: #070707;
+    --gray: #868686;
+    --yellow: #edcb45;
+    --border: rgba(255, 255, 255, .1);
+
+    ${screen.below('1440px', `
+      --container: 1000px;
+    `)}
+  }
+
   *,
   *::after,
   *::before {
     box-sizing: border-box;
   }
 
-  ::-moz-selection { background: rgba(0, 0, 0, .9); }
-  ::selection { background: rgba(0, 0, 0, .9); }
+  ::selection {
+    color: var(--black);
+    background: var(--yellow); 
+  }
+
+  * {
+    &:focus {
+      border-color: var(--border);
+      outline: none;
+      box-shadow: inset 0 1px 2px var(--border), 0 0 0 .2em var(--border);
+    }
+  }
 
   html {
     line-height: 1.15;
@@ -21,8 +45,8 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     margin: 0;
-    color: #fff;
-    background-color: #070707;
+    color: var(--white);
+    background-color: var(--black);
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -30,18 +54,18 @@ const GlobalStyle = createGlobalStyle`
   }
   
   a {
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     text-transform: uppercase;
     transition: color 300ms ease-in-out;
 
     &:hover {
-      color: #edcb45;
+      color: var(--yellow);
     }
   }
 
   p {
-    color: #868686;
+    color: var(--gray);
     line-height: 2;
   }
 
@@ -57,7 +81,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     z-index: 8;
     padding-top: 0;
-    color: #edcb45;
+    color: var(--yellow);
     text-transform: uppercase;
   }
 

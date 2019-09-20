@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import screen from 'superior-mq';
 import Drone from './Drone';
 import Container from './Container';
+import Link from './Link';
 
 const navList = [
   {
     id: 1,
-    title: 'Download',
+    title: 'Download Scenario',
     link: '#',
   }
 ];
@@ -24,9 +25,9 @@ const Header = () => (
         <UnorderedList>
           {navList.map(item => (
             <li key={item.id}>
-              <a href={item.link} target={isExternal(item.link) ? '_blank' : undefined}>
+              <Link href={item.link} target={isExternal(item.link) ? '_blank' : undefined}>
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </UnorderedList>

@@ -55,6 +55,7 @@ const sectionStyles = `
 
 const imageStyles = `
   right: 0;
+  z-index: 11;
 `;
 
 const cornerStyles = `
