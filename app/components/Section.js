@@ -49,7 +49,7 @@ const Texture = styled.div`
   width: 100%;
   height: 100%;
   content: "";
-  background-image: url("/static/noise.png");
+  background-image: url("/img/noise.png");
   opacity: .6;
   pointer-events: none;
 `;
