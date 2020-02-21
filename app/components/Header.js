@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import screen from 'superior-mq';
 import Drone from './Drone';
 import Container from './Container';
-import InlineLink from './InlineLink';
+import StyledLink from './StyledLink';
 
 const navList = [
   {
@@ -58,9 +58,9 @@ const Header = () => (
         <UnorderedList>
           {navList.map(item => (
             <li key={item.id}>
-              <InlineLink href={item.link}>
+              <StyledLink href={item.link}>
                 {item.title}
-              </InlineLink>
+              </StyledLink>
             </li>
           ))}
         </UnorderedList>

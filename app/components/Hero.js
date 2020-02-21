@@ -6,7 +6,7 @@ import Container from './Container';
 import Target from './Target';
 import Corner from './Corner';
 import Section from './Section';
-import SquareImage from './SquareImage';
+import RatioImg from './RatioImg';
 
 const pulse = keyframes`
   from {
@@ -51,11 +51,6 @@ const sectionStyles = `
   `)}
 `;
 
-const imageStyles = `
-  right: 0;
-  z-index: 11;
-`;
-
 const cornerStyles = `
   left: -25px;
 `;
@@ -80,6 +75,16 @@ const TargetWrap = styled.div`
   `)}
 `;
 
+const SquareImage = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  z-index: 11;
+  transform: translateY(-50%);
+`;
+
 const Hero = ({ subheading, heading }) => (
   <Section
     image="/img/compound.jpg"
@@ -94,11 +99,13 @@ const Hero = ({ subheading, heading }) => (
     <TargetWrap>
       <Target />
     </TargetWrap>
-    <SquareImage
-      src="/img/compound-square.jpg"
-      alt="The Compound."
-      styles={imageStyles}
-    >
+    <SquareImage>
+      <RatioImg
+        src="/img/compound-square.jpg"
+        alt="The Compound."
+        width={200}
+        height={200}
+      />
       <Corner styles={cornerStyles} />
     </SquareImage>
   </Section>
