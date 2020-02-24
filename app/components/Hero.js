@@ -90,12 +90,16 @@ const Hero = ({ subheading, heading }) => (
     image="/img/compound.jpg"
     styles={sectionStyles}
   >
-    <Container>
-      <header>
-        <small>{subheading}</small>
-        <h1>{heading}</h1>
-      </header>
-    </Container>
+
+    {subheading && heading &&
+      <Container>
+        <header>
+          <small>{subheading}</small>
+          <h1>{heading}</h1>
+        </header>
+      </Container>
+    }
+
     <TargetWrap>
       <Target />
     </TargetWrap>
@@ -112,8 +116,8 @@ const Hero = ({ subheading, heading }) => (
 );
 
 Hero.propTypes = {
-  heading: PropTypes.string.isRequired,
   subheading: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
 };
 
 export default Hero;

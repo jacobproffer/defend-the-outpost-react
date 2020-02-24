@@ -57,9 +57,13 @@ const Texture = styled.div`
 const Section = ({ styles, children, image }) => (
   <StyledSection styles={styles}>
     {children}
-    <UavView>
-      <img src={image} alt="The compound." />
-    </UavView>
+
+    {image &&
+      <UavView>
+        <img src={image} alt="The compound." />
+      </UavView>
+    }
+
     <Texture />
   </StyledSection>
 );

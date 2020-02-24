@@ -22,11 +22,19 @@ const ContentWrap = styled.div`
 
 const Content = ({ styles, subheading, heading, children }) => (
   <ContentWrap styles={styles}>
-    <small>{subheading}</small>
-    <header>
-      <h2>{heading}</h2>
-    </header>
+
+    {subheading &&
+      <small>{subheading}</small>
+    }
+
+    {heading &&
+      <header>
+        <h2>{heading}</h2>
+      </header>
+    }
+
     {children}
+
   </ContentWrap>
 );
 
